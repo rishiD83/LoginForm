@@ -13,17 +13,31 @@ form.addEventListener("submit", (e) => {
     return false;
   }
 
-  if (email.value === "") {
-    alert("Please enter an email address ");
+  //email validation
+
+  function validateEmail(id) {
+    if (email.value === "") {
+      alert("Please enter an email address ");
+      return false;
+    } else {
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+      if (mailformat.test(id)) {
+      } else {
+        alert("Please enter a valid email ID");
+        return false;
+      }
+    }
+  }
+
+  validateEmail(email.value);
+
+  if (phone.value === "" || phone.value === null) {
+    alert("Please enter a Mobile Number");
     return false;
   }
 
-  if (phone.value === "") {
-    alert("Please enter a Mobile Number ");
-    return false;
-  }
-
-  if (email === "") {
+  if (website.value === "") {
     alert("Please enter Website");
     return false;
   }
@@ -31,7 +45,7 @@ form.addEventListener("submit", (e) => {
   if (textArea.value === "") {
     alert("Please enter your query");
     return false;
+  } else {
+    alert("User is registered")
   }
-
-  else { alert("User Registered")}
 });
