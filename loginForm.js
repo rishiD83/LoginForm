@@ -23,6 +23,7 @@ form.addEventListener("submit", (e) => {
       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
       if (mailformat.test(id)) {
+        return true;
       } else {
         alert("Please enter a valid email ID");
         return false;
@@ -30,7 +31,11 @@ form.addEventListener("submit", (e) => {
     }
   }
 
-  validateEmail(email.value);
+  const validateEmailResponse = validateEmail(email.value);
+  if (!validateEmailResponse) {
+    return false;
+    
+  }
 
   if (phone.value === "" || phone.value === null) {
     alert("Please enter a Mobile Number");
